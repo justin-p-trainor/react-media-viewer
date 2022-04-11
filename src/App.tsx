@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
+import { SearchBar } from './stories/SearchBar'
+import { TrackList } from './stories/TrackList'
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [appState, setAppState] = useState({ tracks: [], loading: false });
+
+    function handleSearchInput(input: string) {
+        fetch("/" + encodeURIComponent(input))
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error(res.status.toString());
+                }
+
+                return res.json();
+            })
+            .then(data => setAppState({ tracks: data, loading: false }))
+            .catch(error => setAppState({ tracks: [], loading: false }));
+    };
+
+    return (
+        <div className="App">
+            <SearchBar
+                placeholder='Type to learn more about your favorite tracks'
+                inputHandler={handleSearchInput} />
+
+            <TrackList
+                tracks={appState.tracks}
+                loading={appState.loading} />
+        </div>
+    );
 }
 
 export default App;
