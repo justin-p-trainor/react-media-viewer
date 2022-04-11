@@ -1,0 +1,10 @@
+.track-list > * {
+    margin: 5px;
+}
+
+.track-list {
+    color: #D7D7D7;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

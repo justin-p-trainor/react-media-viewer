@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# react-media-viewer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
+You can find usage of the `fetch` api in `src/App.tsx`.
+
+The application contains a searchbar whose purpose is to communicate with a [media api](https://github.com/justin-p-trainor/go-digital-media-server) on port 4041. It uses typescript and Storybook and does not have other testing or animations (although they would add a lot of smoothness).
 
 ## Available Scripts
 
@@ -39,8 +42,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### `npm run storybook`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Runs storybook in development mode.\
+Open [http://localhost:6006](http://localhost:6006) to view it in the browser.

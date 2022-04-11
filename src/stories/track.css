@@ -1,0 +1,18 @@
+.track-item {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #5a0757;
+    border-radius: 8px;
+    padding: 10px 10px 10px 10px;
+    outline: 2px solid black;
+    color: #D7D7D7;
+}
+
+.track-item:hover
+{
+    background-color: #740058;
+}
+
+.track-item__trackName {
+    color: #af85d6;
+    font-size: 2em;
+}
