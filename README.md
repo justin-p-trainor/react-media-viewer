@@ -1,9 +1,24 @@
 # react-media-viewer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
-You can find usage of the `fetch` api in `src/App.tsx`.
+![dawn-search](https://user-images.githubusercontent.com/103219497/162853381-ff816a2a-2aa6-42e6-a14f-2531e95d48c7.png)
 
-The application contains a searchbar whose purpose is to communicate with a [media api](https://github.com/justin-p-trainor/go-digital-media-server) on port 4041. It uses typescript and Storybook and does not have other testing or animations (although they would add a lot of smoothness).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+You can find usage of the `fetch` api in `src/App.tsx`. The `proxy` setting in `package.json` is used to ensure the requests go to `http://localhost:4041`.
+
+The application contains a searchbar whose purpose is to communicate with a [media api](https://github.com/justin-p-trainor/go-digital-media-server) on port 4041. It uses typescript and Storybook and does not have other testing or animations.
+
+In a production environment, the next steps I would likely take are:
+* Adding animations
+* As the app grew, I'd want to move the search logic from `App.tsx`
+* Consider client-side optimizations depending on assumptions we can make about the server. For example, without fuzzy searching logic and without a dynamically updating database, the client doesn't really need to make requests to the server for each keystroke. After typing 'a', for instance, you already have all the results containing the letter 'a' and can use further keystrokes to just filter out results rather than requesting new results. A `trie` data structure might be appropriate in that case for quickly assembling all the relevant names.
+* Consider alternative UIs - for example, maybe a nicely styled table-based UI would be more useful (that could integrate nicely with additional sorting / filtering capabilities)
+
+To build and run for development, from the root folder:
+```
+npm install
+npm start
+```
 
 ## Available Scripts
 
